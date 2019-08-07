@@ -10,17 +10,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.test.TestBase.TestBase;
 
 public class TestUtility {
 
-	/*public TestUtility() throws IOException {
-		super();
-		
-	}*/
 	
 	public String takeScreenshots(WebDriver driver) throws IOException{
 		String destination = "C:\\Stuff\\Reetu\\WorkSpace\\CucumberBDDJUnitSingleInputField\\screenshots\\img"+System.currentTimeMillis()+".png";
@@ -31,14 +23,6 @@ public class TestUtility {
 		
 	}
 	
-	/*public ExtentTest testReport(){
-		
-		htmlReporter = new ExtentHtmlReporter("C:\\Stuff\\Reetu\\WorkSpace\\CucumberBDDJUnitSingleInputField\\extentReport\\extent.html");
-		extentReport = new ExtentReports();
-		extentReport.attachReporter(htmlReporter);
-		extentTest = extentReport.createTest("Cucumber BDD JUnit Single Input Field Test", "Single Input Field Test");
-		return extentTest;
-		
-	}*/
+	
 
 }

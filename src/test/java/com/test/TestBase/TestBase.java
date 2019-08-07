@@ -27,7 +27,7 @@ public class TestBase {
 	public ExtentReports extentReport;
 	public ExtentTest extentTest;
 	public TestUtility utility;
-	
+
 	public TestBase() throws IOException {
 		prop = new Properties();
 		FileInputStream fip = new FileInputStream("C:\\Stuff\\Reetu\\WorkSpace\\CucumberBDDJUnitSingleInputField\\src\\main\\java\\com\\test\\Utils\\configure.properties");
@@ -35,13 +35,10 @@ public class TestBase {
 		log= Logger.getLogger(TestBase.class);
 		PropertyConfigurator.configure("C:\\Stuff\\Reetu\\WorkSpace\\CucumberBDDJUnitSingleInputField\\src\\main\\java\\com\\test\\Utils\\log4j.properties");
 		utility = new TestUtility();
-		htmlReporter = new ExtentHtmlReporter("C:\\Stuff\\Reetu\\WorkSpace\\CucumberBDDJUnitSingleInputField\\extentReport\\extent.html");
-		extentReport = new ExtentReports();
-		extentReport.attachReporter(htmlReporter);
-		extentTest = extentReport.createTest("Cucumber BDD JUnit Single Input Field Test", "Single Input Field Test");
-		//return extentTest;
+		testReport();
+		
 	}
-	
+
 	public void initialization() throws IOException{
 		System.setProperty("webdriver.chrome.driver", "C:\\Stuff\\Reetu\\BrowserDriver\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -51,6 +48,16 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+
+	public void testReport(){
+
+		htmlReporter = new ExtentHtmlReporter("C:\\Stuff\\Reetu\\WorkSpace\\CucumberBDDJUnitSingleInputField\\extentReport\\extent.html");
+		extentReport = new ExtentReports();
+		extentReport.attachReporter(htmlReporter);
+		extentTest = extentReport.createTest("Cucumber BDD JUnit Single Input Field Test", "Single Input Field Test");
+		
+
 	}
 
 }

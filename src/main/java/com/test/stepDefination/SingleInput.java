@@ -54,7 +54,7 @@ public class SingleInput extends TestBase {
 	public void user_validates_the_result() throws IOException{
 		
 		String msg = driver.findElement(By.id("display")).getText();
-		//System.out.println("Message displayed===>" + msg);
+		
 		if(msg.contains(prop.getProperty("InputMessage"))){
 			log.debug("Message displayed===>" + msg);
 			extentTest.pass("Message displayed", MediaEntityBuilder.createScreenCaptureFromPath(utility.takeScreenshots(driver)).build());
